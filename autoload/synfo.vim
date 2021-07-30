@@ -70,7 +70,7 @@ def ListTypes()
 		return
 	endif
 
-	types->sort()
+	types->sort((a, b) => a.name == b.name ? 0 : a.name > b.name ? 1 : -1)
 	echo printf('    %-24s %-14s', 'Prop name', 'Vim hl')
 	for t in types
 		var hl = t->get('highlight', '-')
